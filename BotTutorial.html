@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>BotTutorial</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Facebook + Microsoft = Bot</h1>
+
+<p>Over the past couple weeks I have had the great opportunity to developer off of Facebook&#39;s Messenger Platform (Link) and leverage Microsoft&#39;s LUIS Engine (link). What are those and what can you do with them? Well those are two tools which separately may not be able to accomplish much but combined can accomplish a vast amount. So let&#39;s get started:</p>
+
+<h2 id="toc_1">Facebook Messenger</h2>
+
+<p>Launched in April, Facebook released a way for developers to use Facebook&#39;s Messenger platform to create apps for it. What kind of apps you may ask? Well, if there is any interaction with the user and the business, there can be an app on Facebook Messenger for it. The key to this is that it allows users to interact with apps and companies within an app they are already using, Facebook Messenger. During their conference, Facebook showcased two apps - CNN and Poncho. CNN obviously does the news and Poncho is a smart weather assistant. Both apps worked really well but were based off of two different ideas. CNN isn&#39;t much about the user talking or interacting, usually just clicking buttons or getting the news while Poncho is about interacting with the AI to retrieve the weather. </p>
+
+<h2 id="toc_2">Microsoft LUIS</h2>
+
+<p>LUIS (Language Understanding Intelligent Service) is a Microsoft product currently in Preview (Beta) that uses natual language processing to understand certain phrases. Officially a part of <a href="https://www.microsoft.com/cognitive-services/">Microsoft Cognitive Services</a>, LUIS allows developers to create interactions using natural language and then develop off of that. Using APIs or current SDKs, Microsoft is working on building a suite of tools to help developers create seemless interactions. Using LUIS, you can also leverage Cortana, Microsoft&#39;s AI, to help understand phrases and intents of users. From there you create models which help define paths and stories that a user may take.</p>
+
+<h2 id="toc_3">Combining Facebook and Microsoft</h2>
+
+<p>Okay, enough with the words. Let&#39;s get into the development! Please do note, both of these services are in Beta.</p>
+
+<h3 id="toc_4">Setup &amp; Administration</h3>
+
+<p>First off, let&#39;s make some assumptions.</p>
+
+<ol>
+<li>You know basic termial/command line usage.</li>
+<li> We will be using <code>git</code> and <strong>Github</strong> a fair amount. (So thus a Gitub account is required)</li>
+<li>NodeJS and NPM installed on your system. There are a plethora of tutorials out there to help you out with this, I am unable to help you out here right now.</li>
+<li>A Facebook account is required, more is required later but we can get to that later</li>
+<li>A Microsoft account is also required. This can be an Outlook email (like actually an @outlook.com email) or a Hotmail email</li>
+</ol>
+
+<h3 id="toc_5">Setuping Up Facebook</h3>
+
+<p>Note, Facebook does have their own instructions, to follow their instructions you can click on &quot;Messenger Platform&quot; --&gt; &quot;Start Building&quot; --&gt; &quot;Getting Started&quot; (in the left sidebar). Otherwise, let&#39;s continue on.</p>
+
+<h4 id="toc_6">Creating a Facebook Page</h4>
+
+<ol>
+<li>Create a Facebook Page at <a href="https://www.facebook.com/pages/create">https://www.facebook.com/pages/create</a>. Feel free to create whatever you like, you do not need to make it public or publish yet! For this tutorial we are going to make a basic Weather Page.</li>
+<li>I decided that the WeatherBot is a Brand or Product and named it &quot;WeatherBot&quot; <img src="./img/Screen%20Shot%202016-05-20%20at%2010.14.08%20AM.png" alt="WeatherBot"></li>
+<li>Clicking <strong>Get Started</strong> asks me to set up more information about this page, so let&#39;s fill a couple things out:
+
+<ul>
+<li>About: &#39;This is a simple demonstration of finding the weather!&#39; <img src="./img/Screen%20Shot%202016-05-20%20at%2010.15.23%20AM.png" alt="WeatherBot"></li>
+<li>Profile Picture: I just found a random one that I decided to put up, nothing important. <img src="./img/Screen%20Shot%202016-05-20%20at%2010.16.49%20AM.png" alt="WeatherBot"></li>
+<li>Add to Favorites: I skipped this</li>
+<li>Preferred Page Audience: I skipped this also</li>
+</ul></li>
+<li>Our page is successfully created! Take a look at it below: <img src="./img/Screen%20Shot%202016-05-20%20at%2010.17.45%20AM.png" alt="WeatherBot"></li>
+<li>Let&#39;s head over to the &quot;Settings&quot; in the upper right, and under General -&gt; Page Visibility, I unpublished my page. It isn&#39;t important right now and doesn&#39;t need to be published to test. Hit save and we should be good! <img src="./img/Screen%20Shot%202016-05-20%20at%2010.19.09%20AM.png" alt="WeatherBot"> </li>
+</ol>
+
+<h4 id="toc_7">Creating a Facebook APP</h4>
+
+<ol>
+<li>Head over to the <a href="https://developers.facebook.com/quickstarts/?platform=web">Facebook Developer&#39;s site</a> to get started. </li>
+<li>Unless you have an existing app, in the top right click on &quot;Skip and Create App ID&quot;. Put in the necessary information for your bot/app (don&#39;t forget your email) <img src="./img/Screen%20Shot%202016-05-20%20at%2010.26.43%20AM.png" alt="WeatherBot"></li>
+<li>Our app is officially set up - you should see a dashboard like this:<img src="./img/Screen%20Shot%202016-05-25%20at%203.34.41%20PM.png" alt="WeatherBot"></li>
+</ol>
+
+<p>Next up, we need to get some code up and running so we can connect Facebook!</p>
+
+<h3 id="toc_8">Downloading Botkit</h3>
+
+<p>You may be asking yourself now, &quot;Hey wait, Microsoft has their own Bot Framework (BotBuilder), why aren&#39;t we using that?&quot; Well that is a valid question, a great question actually and I&#39;ll share my thoughts. <a href="https://github.com/Microsoft/BotBuilder">Microsoft&#39;s Bot Builder SDK</a>, like it&#39;s LUIS NLP, is still being developed and in beta mode. I originally had the same thought as you and actually developed first on the BotBuilder framework. I attemped to use C# to build on it, but I don&#39;t know it/my Windows VM on Mac wasn&#39;t the greatest so I stopped, and then I tried using the NodeJS SDK. The BotBuilder offers some great features such as one-click integrations with multiple apps (Telegram, Facebook, Skype, etc.) and some conversational flows integrated into the code (called Dialogs). However, it is still growing, being developed, and learning what it needs to be able to do. Some features I was unable to figure out (such as Facebook&#39;s Postbacks), and deployment was a real pain in the arse. I would be testing on Facebook and it would just not respond...which is unfortunate for a guy who likes to make small changes then test them. I don&#39;t doubt that it&#39;ll be a great tool in the near future, but for now, I steered away from using it after a couple days.</p>
+
+<p>I decided to chose a different framework called <a href="https://github.com/howdyai/botkit">BotKit</a> which has been developed for a bit longer and has some great documentation. It also has an npm module/package for easy integration.</p>
+
+<p>Okay, less words, I know I know. Let&#39;s get back to the steps.</p>
+
+<ol>
+<li>Open up your terminal and navigate to where you want your development folder to live. I have a folder in my Documents folder called Development where I store all my development. Feel free to do whatever you prefer.</li>
+<li><code>mkdir weatherbot &amp;&amp; cd weatherbot</code> - weatherbot is the name of the folder you want your bot to live in/the name of your app, call it whatever you like</li>
+<li>You should be inside the folder (that&#39;s what <code>cd weatherbot</code> did), you can now run <code>npm init</code> and follow the prompts. I usually type in the name and description, then hit Enter for everything else <img src="./img/Screen%20Shot%202016-05-20%20at%2010.47.02%20AM.png" alt="WeatherBot"></li>
+<li>Okay awesome, if you type <code>ls</code> you should see a <code>package.json</code> file in your folder and that&#39;s it. <img src="./img/Screen%20Shot%202016-05-20%20at%2010.47.54%20AM.png" alt="WeatherBot"></li>
+<li>Now it is time to install all the packages we are going to be using for this project, I&#39;ll list them below and then the commands to install them
+
+<ul>
+<li>BodyParser</li>
+<li>BotKit</li>
+<li>Delay</li>
+<li>Geocoder</li>
+<li>Moment</li>
+<li>OS</li>
+<li>JFS</li>
+<li>Request</li>
+<li>Underscore</li>
+</ul></li>
+<li>Install them all quickly (and save them) with <code>npm install --save body-parser botkit delay geocoder jfs moment os request underscore</code></li>
+<li>Hopefully they all installed successfully, if not, feel free to ask questions below.</li>
+<li>If you recall in your <code>npm init</code> prompts, one of them asked for &quot;Entry Point&quot; - this will be the file to create and work in. I just used the default <code>index.js</code> but if you chose another, like <code>app.js</code> is fairly commen, you need to create that.</li>
+<li>Create the file you need either in your favorite IDE or with a simple <code>touch index.js</code></li>
+<li>This is where I open up Sublime Text 3, but if you have your favorite IDE open already, or have a different one, just have it open</li>
+<li>Go ahead and open your <code>index.js</code> file and right now you should see nothing in the file because we just created. To start off we need to make sure we include all the packages we installed a couple steps ago. So let&#39;s do that:</li>
+</ol>
+
+<div><pre><code class="language-none">var request   = require(&#39;request&#39;);
+var Botkit    = require(&#39;botkit&#39;);
+var os        = require(&#39;os&#39;);
+var _         = require(&#39;underscore&#39;);</code></pre></div>
+
+<h4 id="toc_9">Setting up Botkit</h4>
+
+<ol>
+<li>With your packages included, it is now (finally) time to get into using Botkit and setting everything up. </li>
+<li>However, before we get there we need 3 important variables from Facebook. So let&#39;s head back to the browser and go to the Facebook page you created. </li>
+<li>Click on &quot;About&quot; (look to the right of the profile picture) and scroll all the way down to the bottom until you find &quot;Facebook Page ID&quot; <img src="./img/Screen%20Shot%202016-05-20%20at%2011.06.16%20AM.png" alt="WeatherBot"></li>
+<li>Save that ID for later use/write it down/remember it/keep the browser open</li>
+<li>Open up a new tab and go to your Facebook App you created at the <a href="https://developers.facebook.com">Developers Center for Facebook</a> - if it doesn&#39;t automatically populate, go to the top right corner where it says &quot;My Apps&quot; and click on the one you created</li>
+<li>On the left hand side, click on &quot;+Add Product&quot; and then chose &quot;Get Started&quot; for &quot;Messenger&quot;</li>
+<li>Click Getting Started on the next screen <img src="./img/Screen%20Shot%202016-05-20%20at%2011.09.41%20AM.png" alt="WeatherBot"></li>
+<li>Now you should see a screen that has &quot;Token Generation&quot; in the top middle section <img src="./img/Screen%20Shot%202016-05-20%20at%2011.11.38%20AM.png" alt="WeatherBot"></li>
+<li>In the &quot;Token Generation&quot; section, under &quot;Page&quot; do the &quot;Select Page&quot; and find the page you created above. You may get a login message from Facebook make sure you allow access to the WeatherBot page you just created, go ahead an click &#39;Okay&#39; for all of them. You own the page, it isn&#39;t published, nothing bad will come of it.</li>
+<li>It should have created a unique &quot;Page Access Token&quot; for you to now use. This is also very important to save for later/write down/remember it/keep the browser open.</li>
+<li>Lastly, for Facebook, we need a &quot;Verify Token&quot; so when you are communicating with the app, Facebook knows it is you and not someone else. You can have it be whatever you like, I just went to <a href="https://www.random.org/strings">Random.org/strings</a> and generated a random one. Or it can be something unique to the app or you. Whatever it is, <em>remember it for later</em></li>
+<li>Okay now, let&#39;s head back to our <code>index.js</code> file and add some code in.</li>
+<li><p>Below your require statments, let&#39;s setup our Facebook details:</p>
+
+<div><pre><code class="language-none">var FB_PAGE_ID      = &quot;&lt;INSERT PAGE_ID&gt;&quot;;
+var FB_PAGE_TOKEN   = process.env.FB_PAGE_TOKEN || &quot;&lt;INSERT PAGE TOKEN&gt;&quot;;
+var FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN || &quot;&lt;INSERT VERIFY TOKEN&gt;&quot;;
+if (!FB_PAGE_TOKEN) {
+    console.log(&#39;Error: Specify page_token in environment&#39;);
+    process.exit(1);
+}
+if (!FB_VERIFY_TOKEN) {
+    console.log(&#39;Error: Specify verify_token in environment&#39;);
+    process.exit(1);
+}</code></pre></div></li>
+<li><p>Now <strong>please note, if you are distrubuting this software you would not want these tokens to be in your code. You would save them in your environment variables on your server, but for now we are just going to hard code them in</strong></p></li>
+<li><p>Anyways, moving on as this is only a demo. With these tokens in there, let&#39;s add the code to setup our bot.</p>
+
+<div><pre><code class="language-none">var controller = Botkit.facebookbot({
+        access_token: FB_PAGE_TOKEN,
+        verify_token: FB_VERIFY_TOKEN
+});</code></pre></div>
+
+<p>Your code show now totally look like this:</p>
+
+<div><pre><code class="language-none">var request   = require(&#39;request&#39;);
+var Botkit    = require(&#39;botkit&#39;);
+var os        = require(&#39;os&#39;);
+var _         = require(&#39;underscore&#39;);
+
+// const FB_PAGE_ID = process.env.FB_PAGE_ID &amp;&amp; Number(process.env.FB_PAGE_ID);
+var FB_PAGE_ID      = &quot;&lt;INSERT PAGE_ID&gt;&quot;;
+var FB_PAGE_TOKEN   = process.env.FB_PAGE_TOKEN || &quot;&lt;INSERT PAGE TOKEN&gt;&quot;;
+var FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN || &quot;&lt;INSERT VERIFY TOKEN&gt;&quot;;
+if (!FB_PAGE_TOKEN) {
+   console.log(&#39;Error: Specify page_token in environment&#39;);
+    process.exit(1);
+}
+if (!FB_VERIFY_TOKEN) {
+    console.log(&#39;Error: Specify verify_token in environment&#39;);
+    process.exit(1);
+}
+
+var controller = Botkit.facebookbot({
+    access_token: FB_PAGE_TOKEN,
+    verify_token: FB_VERIFY_TOKEN
+});</code></pre></div></li>
+<li><p>Next up, let&#39;s create (&quot;spawn&quot;) the bot with <code>var bot = controller.spawn({});</code></p></li>
+<li><p>And setup our webserver with: </p>
+
+<div><pre><code class="language-none">controller.setupWebserver(process.env.port || 8445, function(err, webserver) {
+    controller.createWebhookEndpoints(webserver, bot, function() {
+        console.log(&#39;ONLINE!&#39;);
+    });
+});</code></pre></div>
+
+<p>Note, both of these functions come <strong>prebuilt with the Botkit framework! Woo!</strong></p></li>
+<li><p>Lastly, we are going to add some code in so the bot can respond whenever we talk to it. Something simple!</p>
+
+<div><pre><code class="language-none">// reply to any incoming message
+controller.on(&#39;message_received&#39;, function(bot, message) {
+    bot.reply(message, &#39;I heard... something!&#39;);
+});</code></pre></div>
+
+<p>What this code does is just repond with &quot;I heard...something&quot; anytime the bot gets a message/a user sends  amessage.</p></li>
+<li><p>Alright, so our code is setup, the next question is how do we get Facebook to see it? Welcome <strong>ngrok</strong>. Ngrok is a secure tunnel to localhost, i.e. you don&#39;t actually have to have a server setup right now to deploy too! Makes testing and debugging <strong>much, much easier</strong></p></li>
+<li><p>Head over to the <a href="https://ngrok.com/">Ngrok website</a> and click Download to download the one for your computer.  </p></li>
+<li><p>Back in your terminal, make sure you are still in the directory of your project, unzip nrok with <code>unzip ~/Downloads/ngrok-stable-darwin-amd64.zip</code> Hopefully it will have unzip ngrok into your weatherbot directory</p></li>
+<li><p>With ngrok unzipped, go ahead and run <code>./ngrok http 8445</code> <img src="./img/Screen%20Shot%202016-05-20%20at%2011.57.54%20AM.png" alt="WeatherBot"></p></li>
+<li><p>ngrok will now start up the local tunnel - it should look something like this: <img src="./img/Screen%20Shot%202016-05-25%20at%209.26.55%20AM.png" alt="WeatherBot"></p></li>
+<li><p>You will see there is a new unique url in the terminal window now next to Forwarding. This is your ngrok url that you can now access on any webpage as long as ngrok is running. One is secured (SSL/https) and the other is not. We will need the secure one for Facebook. <strong>Note, mine is different than yours! Don&#39;t just type in what you see!</strong>  <img src="./img/Microsoft_%E2%80%94_ngrok_http_8445_%E2%80%94_160%C3%9748.png" alt="WeatherBot"></p></li>
+<li><p>Go ahead an open up a new tab in your terminal (or new terminal however you like), <code>cd</code> into the bot director and run <code>node index.js</code> <img src="./img/wBTmFFWsN5.gif" alt="WeatherBot"></p></li>
+<li><p>If all goes well, you should see <code>info</code> statements bring printed to the terminal. Congratulations, it is running! We are so close to getting it set up.</p></li>
+<li><p>Go back to your ngrok tab/terminal and copy that <code>https</code> url.</p></li>
+<li><p>Open a new browser window (or go back to your other ones), and head back to your Facebook app you created in the developer site. </p></li>
+<li><p>On the left hand side, click on &quot;Messenger&quot; then on &quot;Setup Webhooks&quot; <img src="./img/WeatherBot_-_Messenger_-_Facebook_for_Developers.png" alt="WeatherBot"></p></li>
+<li><p>Where is says &quot;Callback URL&quot;, paste in your ngrok https url. </p></li>
+<li><p>For Verify Token, remember that token we created at <strong>step 11</strong>, go ahead and paste it in there too.</p></li>
+<li><p>Lastly, check all the boxes for Subscription Fields.<img src="./img/Screen%20Shot%202016-05-25%20at%209.41.32%20AM.png" alt="WeatherBot"></p></li>
+<li><p>If you hit &quot;Verify and Save&quot; now, you will get an error for the Callback URL. Hover over the red triangle and it will have a 404 error. That is because Facebook is looking for a specific callback url to hit and get the information we need. </p></li>
+<li><p>Go back to your callback url and add at the end <code>facebook/receive</code> to the end of it. So it should look something like: <code>https://edafe0a0.ngrok.io/facebook/receive</code>
+-Note, make sure that ngrok is running and you have your app running with <code>node index.js</code></p></li>
+<li><p>Now, go ahead and hit &quot;Verify and Save&quot; to get it to work. You will notice on the left hand side Facebook added the section &#39;Webhooks&#39; under Products. If you ever need to change the url or verify token, this is where you would do it. Example use case would be when you stop and restart ngrok.</p></li>
+<li><p>If all has gone according to plan, we are very close! Just a quick recap to make sure we&#39;ve checked everything off of the list: 1. Setup Facebook Page &amp; App 2. Have our bot running with <code>node index.js</code> and have ngrok running 3. Placed our Callback URLs (ngrok), Verify Tokens, and App Id&#39;s in the correct spots</p></li>
+</ol>
+
+<h4 id="toc_10">Interacting with WeatherBot</h4>
+
+<p>Hopefully at this point you have done the steps above. Let&#39;s start interacting with our bot.</p>
+
+<ol>
+<li>Head over to your Facebook Page that you created for Weatherbot. At the bottom of the banner image you should see a button that says &quot;Message&quot; (right next to Like). Click that button and a chat window should open up with Weatherbot. If it doesn&#39;t, click on the Message button again for the dropdown, and click &quot;Copy Messenger Link&quot;. Then go to Messenger, start a new conversation, and paste that link in at the top.</li>
+<li>Let&#39;s see if it works - go ahead and send the message <strong>Hello</strong> to WeatherBot. Hopefully WeatherBot responded with &quot;I heard...something!&quot; <img src="./img/Screen%20Shot%202016-05-25%20at%203.42.07%20PM.png" alt="WeatherBot"></li>
+<li><p>Congratulations! You have your first bot set up!</p>
+
+<p><img src="http://i.giphy.com/BQAk13taTaKYw.gif" alt="WeatherBot"></p></li>
+<li><p>You may be thinking now &quot;Well that&#39;s kind of cool...but it only does one thing.&quot; Yes I know, but we have to start somewhere!</p></li>
+</ol>
+
+<h3 id="toc_11">Working with LUIS</h3>
+
+<p>LUIS is a beast within itself, so be patient and let&#39;s get started. If you&#39;re curious about more information and the LUIS Help documentation, <a href="https://www.luis.ai/Help">check it out here</a></p>
+
+<ol>
+<li>First off, go to <a href="https://www.luis.ai">the LUIS Website</a> and sign in with your Microsoft Account.</li>
+<li>You&#39;ll be directed to a sceren that says &quot;My Applications&quot; at the top. Click on &quot;+New App&quot; and then on &quot;New Application&quot; <img src="./img/LUIS__My_Applications.png" alt="WeatherBot"> </li>
+<li>Let&#39;s fill out this information with our basic information for the WeatherBot and then click &quot;Add App&quot; at the bottom <img src="./img/LUIS__My_Application.png" alt="WeatherBot"> </li>
+<li>It may take a couple seconds for Microsoft to process your request, so be a bit patient, but once it does, you should be taken to a screen that looks like this: <img src="./img/LUIS__Edit_Application.png" alt="WeatherBot"> </li>
+</ol>
+
+<p>Now would be a good time to do a quick timeout to understand some basic terminology.</p>
+
+<h4 id="toc_12">Terminology Timeout</h4>
+
+<p><strong>Intents</strong>: An intent is something that the user/bot is trying to do. This could be <code>FindWeather</code> for us, or if you are searching for movies it could be <code>FindMovie</code>. It could also be things like <code>FindNews</code> or <code>ShareNews</code>. I often associate them with verbs and actions the user it trying to do.</p>
+
+<p><strong>Entities</strong>: Entities are often what make up an intent. For example, <code>Find X-Men</code> would have an Intent of <code>FindMovie</code> and &quot;X-Men&quot; would be an Entity of <code>Movie</code>. Or if you are doing news and have &quot;find news about mars&quot;, the intent would be <code>FindNews</code> and the word &quot;mars&quot; would be an entity of type <code>Topic</code> because you are trying to find the news about mars.</p>
+
+<p><strong>Utterances</strong>: Phrases that a user may say</p>
+
+<p>//end timeout</p>
+
+<h4 id="toc_13">Setting Up Intents and Entities</h4>
+
+<p>For our WeatherBot, we are going to keep it simple. Because of that, we are going to be setting up a two or three intents and entities in LUIS. Let&#39;s get started.</p>
+
+<ol>
+<li>Let&#39;s add a new Entity. On the left hand side, hit the plus button next to &quot;Pre-Built Entities&quot;, and in the dialog box click on &quot;Geography&quot; <img src="./img/LUIS__Edit_Application_1.png" alt="WeatherBot"> <img src="./img/LUIS__Edit_Application_2.png" alt="WeatherBot"></li>
+<li>Next up, let&#39;s create an new Intent. Hit the plus button next to Intents, called it &quot;FindWeather&quot; and we are going to type in an utterance. Let&#39;s do something simple: &quot;weather in Atlanta&quot;. <img src="./img/Screen%20Shot%202016-05-27%20at%209.01.47%20AM.png" alt="WeatherBot"> </li>
+<li>Go ahead and hit save and you should get something like this (note <strong>do not</strong> click submit): <img src="./img/Screen%20Shot%202016-05-27%20at%209.04.12%20AM.png" alt="WeatherBot"> </li>
+<li>Right now, we have the word &#39;Atlanta&#39; highlighted and hopefully LUIS has recognized this as a datetime and geography entity! </li>
+<li>Now that we have one down, let&#39;s go ahead and add a couple more phrases that could be classified under the &#39;FindWeather&#39; intent. 
+-weather in new york?
+-weather in san francisco?
+-forecast for Miami</li>
+<li>Make sure for each utterance you put in, you classify it as &quot;FindWeather&quot; in the dropdown to the right. </li>
+<li>Next up, in the bottom left hand corner is a button that says &quot;Train&quot;. Go ahead and click that to train our LUIS application. </li>
+<li>With our LUIS model trained, on the left hand side there is a &quot;Publish&quot; button, let&#39;s click on that and then click on &#39;Publish Web Service&quot; </li>
+<li>We now have a published application. Let&#39;s try out our application by typing out a similar phrase to our FindWeather intent in the &quot;Query&quot; field. Type out &quot;weather in miami&quot; and the click on the URL right below it. It&#39;ll give you a JSON output with the top scoring intent and what LUIS understood it as.</li>
+<li>It will open up in a new window with the query sent to the LUIS WeatherBot application and have a JSON representation of what it understood. If all went well, you should see the &quot;FindWeather&quot; Intent with a larger score, and our entity - builtin.geography.city. The score represents which intent LUIS matched with most. A score close to 1 means it matched it very well, closer to 0 means not so much. INSERT IMAGE</li>
+<li>For now, that is going to be the only intent we are going to set up for our bot. We can maybe try more later, but let&#39;s get back to the code. </li>
+</ol>
+
+<h3 id="toc_14">Integrating LUIS and the Code</h3>
+
+<p>Let&#39;s head back to our code editor, open up the folder, and get started with integration. Go ahead and open <code>index.js</code></p>
+
+<ol>
+<li><p>To integrate LUIS, let&#39;s create a new function that handles all requests. We are going to call it <code>requestLUIS</code> and it is going to take our <code>bot</code> and the <code>message</code> as arguments</p>
+
+<div><pre><code class="language-none">function requestLUIS(bot, message) {
+});</code></pre></div></li>
+<li><p>Earlier we created the <code>controller.on(&#39;message_received&#39;...</code> in our code. What this statement did was listen to anytime a message received and then just reply with &quot;I heard... something&quot;. So let&#39;s change that up so anytime we get a message, we request it to LUIS. </p>
+
+<div><pre><code class="language-none">controller.on(&#39;message_received&#39;, function(bot, message) {
+    requestLUIS(bot, message);
+});</code></pre></div></li>
+<li><p>Now we need to send the message to LUIS to try and understand it. Luckily, that url we clicked under &quot;Query&quot; in LUIS is just what we need. So let&#39;s go back to LUIS.</p></li>
+<li><p>When you go back to your LUIS app, you will see at the top a button for &quot;Go to Preview&quot;, click on that INSERT IMAGE</p></li>
+<li><p>Then, on the left hand side, click &quot;Publish&quot; again, then again &quot;Update Published Application&quot;. Copy that URL. The only difference between the Preview and Production URL is that the Preview URL predicts and returns only what you need instead of us, as developers, trying to figure out what intent it found. If you want to see the change, do the same Query step from above. INSERT IMAGE</p></li>
+<li><p>Near the top of our code, where we definded our FB<em>PAGE</em>ID and FB<em>PAGE</em>TOKEN, let&#39;s go ahead and create a variable for our LUIS Url:</p>
+
+<div><pre><code class="language-none">var LUIS_API_URL = &quot;INSERT_URL_HERE&quot;;
+var FB_PAGE_ID ...</code></pre></div></li>
+<li><p>Now head back to the <code>requestLUIS</code> function and get started with making a request&quot;</p>
+
+<div><pre><code class="language-none">function requestLUIS(bot, message) {
+    request(LUIS_API_URL + &quot;&amp;q=&quot; + message.text, function(error, response, body) {
+        if(!error &amp;&amp; response.statusCode == 200) {
+            var data = JSON.parse(body);
+            console.log(data);
+        } else {
+            console.log(&quot;Error in LUIS Request: &quot; + error);
+        }
+    });
+}</code></pre></div></li>
+<li><p>Now go back to your terminal, go to the one that has <code>node index.js</code> running (<strong>not ngrok</strong>), hit Ctrl-C to stop the process, then again type in <code>node index.js</code> to start it back up.</p></li>
+<li><p>Hopefully, if all went well, we can head back over to Messenger and send another message to WeatherBot. Let&#39;s do one of the ones we know: &quot;will it rain tomorrow&quot; (note, if it seems slow to respond or you are not getting anything in your console, try restarting it again)</p></li>
+<li><p>In our console you should see the response returned from LUIS:  INSERT IMAGE</p></li>
+<li><p>Alright, so we successfully got data back from LUIS, let&#39;s manipulate the data now. </p>
+
+<div><pre><code class="language-none">...
+var data = JSON.parse(body);
+var intent = data.topScoringIntent.intent;
+switch(intent) {
+    case &quot;FindWeather&quot;:
+        findWeather(bot, message, data);
+        break;
+    case &quot;None&quot;:
+        bot.reply(message, &quot;Oops, didn&#39;t quite understand you :(&quot;);
+        break;
+}
+...</code></pre></div>
+
+<p>What did we just do? Well we took the JSON data that was returned from LUIS, figured out what the topScoringIntent was (the one that matched closest with the user&#39;s message), then created a <code>switch</code> statement on the intent. You may notice I called a new function <code>findWeather(bot, message, data)</code> that we haven&#39;t created yet. We will do that next. The whole <code>requestLUIS</code> function should look like this:</p>
+
+<div><pre><code class="language-none">function requestLUIS(bot, message) {
+    request(LUIS_API_URL + &quot;&amp;q=&quot; + message.text, function(error, response, body) {
+        if(!error &amp;&amp; response.statusCode == 200) {
+            var data = JSON.parse(body);
+            var intent = data.topScoringIntent.intent;
+            switch(intent) {
+                case &quot;FindWeather&quot;:
+                    findWeather(bot, message, data);
+                    break;
+                case &quot;None&quot;:
+                    bot.reply(message, &quot;Oops, didn&#39;t quite understand you :(&quot;);
+                    break;
+            }
+        } else {
+            console.log(&quot;Error in LUIS Request: &quot; + error);
+        }
+    });
+}</code></pre></div></li>
+<li><p>Let&#39;s create our <code>findWeather</code> function now:</p>
+
+<div><pre><code class="language-none">function findWeather(bot, message, data) {
+     var entities = data.entities; //from our JSON reponse
+    var location = _.findWhere(entities, { type: &#39;builtin.geography.city&#39; });
+    if(!location) {
+        console.log(&quot;No weather type found&quot;);
+        bot.reply(message, &quot;Uhoh, I didn&#39;t quite get that&quot;);
+    } else {
+        var locationIndex = _.indexOf(entities, location);
+        var dateTime = _.findWhere(entities, { type: &#39;builtin.datetime.date&#39; });
+        var state = _.findWhere(entities, { type: &#39;builtin.geography.us_state&#39;});
+        if(dateTime) {
+            bot.reply(message, &quot;Okay, I&#39;m going to check the weather in &quot; + location.entity + &quot; for &quot; + dateTime);
+        } else {
+            bot.reply(message, &quot;Okay, I&#39;m going to check the wather in &quot; + location.entity); 
+        }
+        requestWeather(bot, message, location, dateTime, state);
+    }
+}</code></pre></div>
+
+<p><em>Important Note</em> Alright, let&#39;s back up a smidge. If you look at the LUIS documentation, you will see that there is not <strong>just one</strong> type of datetime. There is a datetime.date, datetime.time, and more. So if we put in &quot;will it rain tomorrow&quot; - tomorrow is a datetime.date. If we put in &quot;will it rain at 6:00&quot; - 6:00 is a datetime.time. So if you build this out more, that is something you will need to think about! So above we are just getting the datetime entity based off of that it is not the weathertype entity, thus the other entity in the entities array will be the datetime one. Confusing, I know. This is also the same for builtin.geography. However, it only works for the US...limitations.</p>
+
+<p>Also, I created another new function <code>requestWeather</code> which will be get our weather data. </p></li>
+<li><p>Let&#39;s create <code>requestWeather</code>. However, to get weather data we are actually going to install another npm module. So go back to your terminal, you can Ctrl-C the <code>node index.js</code> process, and then type <code>npm install weather-js</code>. *Note, I have no relation with this module and cannot garuantee it will work when you try it out. It is just for tutorial purposes. You can <a href="https://github.com/fatihcode/weather">view the code here</a></p></li>
+<li><p>With it now installed, go back to our code to add it to the <code>require</code> statements:</p>
+
+<div><pre><code class="language-none">...
+var _         = require(&#39;underscore&#39;);
+var weather   = require(&#39;weather-js&#39;);</code></pre></div>
+
+<div><pre><code class="language-none">function requestWeather(bot, message, location, dateTime, state) {
+    var loc = location.entity;
+    if(state) {
+        loc = loc + &quot;, &quot; + state.entity;
+    }
+    weather.find({search: loc, degreeType: &#39;F&#39;}, function(err, result) {
+        if(err) {
+            console.log(err);
+        } else {
+            var currentWeather = result[0].current;
+
+            var temperature = currentWeather.temperature;
+            var weatherText = currentWeather.skytext;
+            var day         = currentWeather.day;
+            var image       = currentWeather.imageUrl;
+
+            var temp = {};
+                temp.title = weatherText;
+                temp.image_url = image;
+                temp.subtitle = day + &quot;: &quot; + temperature;
+
+            var weatherArray = [];
+                weatherArray.push(temp);
+                console.log(temp);
+            var msg = fbMessageTemplate(&quot;generic&quot;, &quot;elements&quot;, null, weatherArray)
+            bot.reply(message, msg);
+        }
+    });
+}</code></pre></div>
+
+<p>Let&#39;s look at the code above. First off, if the state exists in the query i.e. if a user types in &quot;weather in Atlanta, GA&quot;, we want to add it onto the location search. We then use the weather-js library we juts downloaded to get data back. We get the first result from the returned data (this could be improved later but works for now), then we capture the temperature, text, day, and image from the returned data. </p>
+
+<p>The next part is where more Facebook work comes in. We are going to take another timeout</p>
+
+<h4 id="toc_15">Facebook Structure Data Timeout</h4>
+
+<p>With the release of the Messenger platform, Facebook also allowed developers to use a &quot;Strucured Data Template&quot;. You can see examples of what they look like below, but it allows develoeprs to add buttons, text, receipts, links, and images to the responses to users. <a href="https://developers.facebook.com/docs/messenger-platform/implementation">You can view them all here</a></p>
+
+<p>There are three main types:</p>
+
+<ol>
+<li>Button Template <img src="./img/Untitled-4.png" alt="WeatherBot"> </li>
+<li>Generic Template <img src="./img/Untitled-3.png" alt="WeatherBot"><br></li>
+<li>Receipt Template <img src="./img/Untitled-2.png" alt="WeatherBot"> 
+//end timeout</li>
+</ol></li>
+<li><p>Back to the code, you will see that I created a <code>temp</code> object to hold the data, we are going to create a Generic template to send back which will contain a) the image b) the text of the weather c) a subtitle of the day and the temperature. It&#39;ll look something like this: INSERT IMAGE</p></li>
+<li><p>I created a helper function called <code>fbMessageTemplate</code> which takes in 4 arguments (could be condensed but that&#39;s okay). The 4 arguments are the template type (generic, button, or receipt), the element type (elements or buttons), a title (for the buttons template), and then the data. <strong>Note</strong>, the data passed through has to be <strong>an array</strong> that conforms to the template type structure you are passing through. If you have a Button Template, the data array needs to have all the requirements to be a button (url, title, etc.). To view the full documentation on this, <a href="https://developers.facebook.com/docs/messenger-platform/implementation">go to the Facebook Developer&#39;s Website</a> </p></li>
+<li><p>Here is the code for the <code>fbMessageTemplate</code> function</p>
+
+<div><pre><code class="language-none">function fbMessageTemplate(template, elementType, text, data) {
+    var messageData = {
+        &quot;attachment&quot;: {
+            &quot;type&quot;: &quot;template&quot;,
+            &quot;payload&quot;: {
+                &quot;template_type&quot;: template,
+            }
+        }
+    };
+    if(elementType == &quot;buttons&quot;){
+        messageData.attachment.payload.buttons = data;
+        messageData.attachment.payload.text = text;
+    } else {
+        messageData.attachment.payload.elements = data;
+    }
+    return messageData;
+}</code></pre></div></li>
+<li><p>Alright, so if we combine it all together, this is what your whole <code>index.js</code> file should look like:</p>
+
+<div><pre><code class="language-none">var request   = require(&#39;request&#39;);
+var Botkit    = require(&#39;botkit&#39;);
+var os        = require(&#39;os&#39;);
+var _         = require(&#39;underscore&#39;);
+var weather   = require(&#39;weather-js&#39;);
+
+var LUIS_API_URL    = &quot;&lt;LUIS_API_URL&gt;&quot;;
+var FB_PAGE_ID      = &quot;&lt;FB_PAGE_ID&gt;&quot;;
+var FB_PAGE_TOKEN   = process.env.FB_PAGE_TOKEN || &quot;&lt;FB_PAGE_TOKEN&gt;&quot;;
+var FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN || &quot;&lt;FB_VERIFY_TOKEN&gt;&quot;;
+if (!FB_PAGE_TOKEN) {
+    console.log(&#39;Error: Specify page_token in environment&#39;);
+    process.exit(1);
+}
+if (!FB_VERIFY_TOKEN) {
+    console.log(&#39;Error: Specify verify_token in environment&#39;);
+    process.exit(1);
+}
+
+var controller = Botkit.facebookbot({
+    access_token: FB_PAGE_TOKEN,
+    verify_token: FB_VERIFY_TOKEN
+});
+
+var bot = controller.spawn({});
+
+controller.setupWebserver(process.env.port || 8445, function(err, webserver) {
+    controller.createWebhookEndpoints(webserver, bot, function() {
+        console.log(&#39;ONLINE!&#39;);
+    });
+});
+
+// reply to any incoming message
+controller.on(&#39;message_received&#39;, function(bot, message) {
+    requestLUIS(bot, message);
+});
+
+function requestLUIS(bot, message) {
+    request(LUIS_API_URL + &quot;&amp;q=&quot; + message.text, function(error, response, body) {
+        if(!error &amp;&amp; response.statusCode == 200) {
+            var data = JSON.parse(body);
+            var intent = data.topScoringIntent.intent;
+            switch(intent) {
+                case &quot;FindWeather&quot;:
+                    findWeather(bot, message, data);
+                    break;
+                case &quot;None&quot;:
+                    bot.reply(message, &quot;Oops, didn&#39;t quite understand you :(&quot;);
+                    break;
+            }
+        } else {
+            console.log(&quot;Error in LUIS Request: &quot; + error);
+        }
+    });
+}
+function findWeather(bot, message, data) {
+    var entities = data.entities; //from our JSON reponse
+    var location = _.findWhere(entities, { type: &#39;builtin.geography.city&#39; });
+    if(!location) {
+        console.log(&quot;No weather type found&quot;);
+        bot.reply(message, &quot;Uhoh, I didn&#39;t quite get that&quot;);
+    } else {
+        var locationIndex = _.indexOf(entities, location);
+        var dateTime = _.findWhere(entities, { type: &#39;builtin.datetime.date&#39; });
+        var state = _.findWhere(entities, { type: &#39;builtin.geography.us_state&#39;});
+        if(dateTime) {
+            bot.reply(message, &quot;Okay, I&#39;m going to check the weather in &quot; + location.entity + &quot; for &quot; + dateTime);
+        } else {
+            bot.reply(message, &quot;Okay, I&#39;m going to check the wather in &quot; + location.entity); 
+        }
+        requestWeather(bot, message, location, dateTime, state);
+    }
+}
+
+function requestWeather(bot, message, location, dateTime, state) {
+    var loc = location.entity;
+    if(state) {
+        loc = loc + &quot;, &quot; + state.entity;
+    }
+    weather.find({search: loc, degreeType: &#39;F&#39;}, function(err, result) {
+        if(err) {
+            console.log(err);
+        } else {
+            var currentWeather = result[0].current;
+
+            var temperature = currentWeather.temperature;
+            var weatherText = currentWeather.skytext;
+            var day         = currentWeather.day;
+            var image       = currentWeather.imageUrl;
+
+            var temp = {};
+                temp.title = weatherText;
+                temp.image_url = image;
+                temp.subtitle = day + &quot;: &quot; + temperature;
+
+            var weatherArray = [];
+                weatherArray.push(temp);
+                console.log(temp);
+            var msg = fbMessageTemplate(&quot;generic&quot;, &quot;elements&quot;, null, weatherArray)
+            bot.reply(message, msg);
+        }
+    });
+}
+
+function fbMessageTemplate(template, elementType, text, data) {
+    var messageData = {
+        &quot;attachment&quot;: {
+            &quot;type&quot;: &quot;template&quot;,
+            &quot;payload&quot;: {
+                &quot;template_type&quot;: template,
+            }
+        }
+    };
+    if(elementType == &quot;buttons&quot;){
+        messageData.attachment.payload.buttons = data;
+        messageData.attachment.payload.text = text;
+    } else {
+        messageData.attachment.payload.elements = data;
+    }
+    return messageData;
+}</code></pre></div></li>
+<li><p>Alrighty, so we have <code>index.js</code> all set up, let&#39;s head back to the terminal, Ctrl-C if you already have <code>node index.js</code> running, then go ahead and run it again with <code>node index.js</code></p></li>
+<li><p>Now we can head back to our WeatherBot Facebook message and type out on of our commands. Let&#39;s try &quot;weather in Atlanta, GA&quot; 
+<img src="./img/Screen%20Shot%202016-05-27%20at%208.46.07%20AM.png" alt="WeatherBot"></p></li>
+<li><p>Congratulations! Hopefully you got back something like I did! Your first bot is a success :) Go ahead and try out some other cities, &quot;weather in seattle&quot; or &quot;weather in New york&quot;. Every once in a while you may get one of our default responsese &quot;Opps, didn&#39;t quite understand you.&quot; If your text was correct, maybe LUIS just doesn&#39;t understand it yet. All it takes is you going back to LUIS, typing in the utterance, and then training it. It should catch on pretty quickly.</p></li>
+</ol>
+
+<h2 id="toc_16">Where to go from here</h2>
+
+<p>So what did we create? We created a simple chat bot interface that gives you the weather in a city. Exciting work but you can go so much further than this. </p>
+
+<h4 id="toc_17">Challenges to try</h4>
+
+<p>-What if we don&#39;t know the location? Can the user send their location through Facebook&#39;s Messenger location feature? Absolutely they can, and there are ways to do that with Botkit. </p>
+
+<p>-How about a forecast? The npm library we used (weather-js) gives you the next couple days weather. If the user types in &quot;weather in atlanta, ga tomorrow&quot;, LUIS can understand that &quot;tomorrow&quot; is a datetime and can give you that back. Then you just have to parse it and get the correct data.</p>
+
+<p>-How about specifc type of weather? &quot;Will it rain tomorrow&quot; would be a great challenge. You would need to find the user&#39;s location, then create an entity to recognize the word &quot;rain&quot; or &quot;thunderstorm&quot; or &quot;sunny&quot;, then you need to use the word &quot;tomorrow&quot; to get the weather for tomorrow. </p>
+
+<p>-How about storage? Botkit provides a simple way to do storage by json-file saving. What if a users asks &quot;will it rain tomorrow&quot;, you prompt them for their location, save it, then next time they ask &quot;will it be sunny tomorrow&quot; you already know where they are!</p>
+
+<p>There are so many paths that you can take with this, I hope I was able to provide a foundation for it all. Next steps for this bot, if it were more fleshed out, would be to then deploy it to a server (ngrok only runs when your computer is open), and then get it reviewed by Facebook to publish. I have not done either of those so I am unable to help there! (Note, Facebook requires a https/secure server. So thus you will need some keys and certs, look into it!)</p>
+
+<p>If you have any questions, problems, or improvements, please let me know!</p>
+
+<hr>
+
+<p>Note, most images are screenshots. Images from Facebook are images of Facebook and owned by Facebook. Images of LUIS are images of LUIS and owned by Microsoft. I do not own or have any relation with the services. I am also not liable for anything if somehow something gets messed up. This is purely for fun and a tutorial - I am happy to help out when need be and when I can. </p>
+
+
+
+
+</body>
+
+</html>
