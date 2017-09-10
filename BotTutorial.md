@@ -1,17 +1,17 @@
-#Facebook + Microsoft = Bot
+# Facebook + Microsoft = Bot
 
 Over the past couple weeks I have had the great opportunity to developer off of Facebook's Messenger Platform (Link) and leverage Microsoft's LUIS Engine (link). What are those and what can you do with them? Well those are two tools which separately may not be able to accomplish much but combined can accomplish a vast amount. So let's get started:
 
-##Facebook Messenger
+## Facebook Messenger
 Launched in April, Facebook released a way for developers to use Facebook's Messenger platform to create apps for it. What kind of apps you may ask? Well, if there is any interaction with the user and the business, there can be an app on Facebook Messenger for it. The key to this is that it allows users to interact with apps and companies within an app they are already using, Facebook Messenger. During their conference, Facebook showcased two apps - CNN and Poncho. CNN obviously does the news and Poncho is a smart weather assistant. Both apps worked really well but were based off of two different ideas. CNN isn't much about the user talking or interacting, usually just clicking buttons or getting the news while Poncho is about interacting with the AI to retrieve the weather. 
 
-##Microsoft LUIS
+## Microsoft LUIS
 LUIS (Language Understanding Intelligent Service) is a Microsoft product currently in Preview (Beta) that uses natual language processing to understand certain phrases. Officially a part of [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services/), LUIS allows developers to create interactions using natural language and then develop off of that. Using APIs or current SDKs, Microsoft is working on building a suite of tools to help developers create seemless interactions. Using LUIS, you can also leverage Cortana, Microsoft's AI, to help understand phrases and intents of users. From there you create models which help define paths and stories that a user may take.
 
-##Combining Facebook and Microsoft
+## Combining Facebook and Microsoft
 Okay, enough with the words. Let's get into the development! Please do note, both of these services are in Beta.
 
-###Setup & Administration
+### Setup & Administration
 First off, let's make some assumptions.
 
 1. You know basic termial/command line usage.
@@ -20,10 +20,10 @@ First off, let's make some assumptions.
 4. A Facebook account is required, more is required later but we can get to that later
 5. A Microsoft account is also required. This can be an Outlook email (like actually an @outlook.com email) or a Hotmail email
 
-###Setuping Up Facebook
+### Setuping Up Facebook
 Note, Facebook does have their own instructions, to follow their instructions you can click on "Messenger Platform" --> "Start Building" --> "Getting Started" (in the left sidebar). Otherwise, let's continue on.
 
-####Creating a Facebook Page
+#### Creating a Facebook Page
 1. Create a Facebook Page at [https://www.facebook.com/pages/create](https://www.facebook.com/pages/create). Feel free to create whatever you like, you do not need to make it public or publish yet! For this tutorial we are going to make a basic Weather Page.
 2. I decided that the WeatherBot is a Brand or Product and named it "WeatherBot" ![WeatherBot](./img/Screen Shot 2016-05-20 at 10.14.08 AM.png)
 3. Clicking **Get Started** asks me to set up more information about this page, so let's fill a couple things out:
@@ -34,14 +34,14 @@ Note, Facebook does have their own instructions, to follow their instructions yo
 4. Our page is successfully created! Take a look at it below: ![WeatherBot](./img/Screen Shot 2016-05-20 at 10.17.45 AM.png)
 5. Let's head over to the "Settings" in the upper right, and under General -> Page Visibility, I unpublished my page. It isn't important right now and doesn't need to be published to test. Hit save and we should be good! ![WeatherBot](./img/Screen Shot 2016-05-20 at 10.19.09 AM.png) 
 
-####Creating a Facebook APP
+#### Creating a Facebook APP
 1. Head over to the [Facebook Developer's site](https://developers.facebook.com/quickstarts/?platform=web) to get started. 
 2. Unless you have an existing app, in the top right click on "Skip and Create App ID". Put in the necessary information for your bot/app (don't forget your email) ![WeatherBot](./img/Screen Shot 2016-05-20 at 10.26.43 AM.png)
 3. Our app is officially set up - you should see a dashboard like this:![WeatherBot](./img/Screen Shot 2016-05-25 at 3.34.41 PM.png)
 
 Next up, we need to get some code up and running so we can connect Facebook!
 
-###Downloading Botkit
+### Downloading Botkit
 You may be asking yourself now, "Hey wait, Microsoft has their own Bot Framework (BotBuilder), why aren't we using that?" Well that is a valid question, a great question actually and I'll share my thoughts. [Microsoft's Bot Builder SDK](https://github.com/Microsoft/BotBuilder), like it's LUIS NLP, is still being developed and in beta mode. I originally had the same thought as you and actually developed first on the BotBuilder framework. I attemped to use C# to build on it, but I don't know it/my Windows VM on Mac wasn't the greatest so I stopped, and then I tried using the NodeJS SDK. The BotBuilder offers some great features such as one-click integrations with multiple apps (Telegram, Facebook, Skype, etc.) and some conversational flows integrated into the code (called Dialogs). However, it is still growing, being developed, and learning what it needs to be able to do. Some features I was unable to figure out (such as Facebook's Postbacks), and deployment was a real pain in the arse. I would be testing on Facebook and it would just not respond...which is unfortunate for a guy who likes to make small changes then test them. I don't doubt that it'll be a great tool in the near future, but for now, I steered away from using it after a couple days.
 
 I decided to chose a different framework called [BotKit](https://github.com/howdyai/botkit) which has been developed for a bit longer and has some great documentation. It also has an npm module/package for easy integration.
@@ -181,7 +181,7 @@ if (!FB_VERIFY_TOKEN) {
 34. Now, go ahead and hit "Verify and Save" to get it to work. You will notice on the left hand side Facebook added the section 'Webhooks' under Products. If you ever need to change the url or verify token, this is where you would do it. Example use case would be when you stop and restart ngrok.
 35. If all has gone according to plan, we are very close! Just a quick recap to make sure we've checked everything off of the list: 1. Setup Facebook Page & App 2. Have our bot running with `node index.js` and have ngrok running 3. Placed our Callback URLs (ngrok), Verify Tokens, and App Id's in the correct spots
 
-####Interacting with WeatherBot
+#### Interacting with WeatherBot
 Hopefully at this point you have done the steps above. Let's start interacting with our bot.
 
 1. Head over to your Facebook Page that you created for Weatherbot. At the bottom of the banner image you should see a button that says "Message" (right next to Like). Click that button and a chat window should open up with Weatherbot. If it doesn't, click on the Message button again for the dropdown, and click "Copy Messenger Link". Then go to Messenger, start a new conversation, and paste that link in at the top.
@@ -192,7 +192,7 @@ Hopefully at this point you have done the steps above. Let's start interacting w
 	
 4. You may be thinking now "Well that's kind of cool...but it only does one thing." Yes I know, but we have to start somewhere!
 
-###Working with LUIS
+### Working with LUIS
 LUIS is a beast within itself, so be patient and let's get started. If you're curious about more information and the LUIS Help documentation, [check it out here](https://www.luis.ai/Help)
 
 1. First off, go to [the LUIS Website](https://www.luis.ai) and sign in with your Microsoft Account.
@@ -202,7 +202,7 @@ LUIS is a beast within itself, so be patient and let's get started. If you're cu
 
 Now would be a good time to do a quick timeout to understand some basic terminology.
 
-####Terminology Timeout 
+#### Terminology Timeout 
 
 **Intents**: An intent is something that the user/bot is trying to do. This could be `FindWeather` for us, or if you are searching for movies it could be `FindMovie`. It could also be things like `FindNews` or `ShareNews`. I often associate them with verbs and actions the user it trying to do.
 
@@ -212,7 +212,7 @@ Now would be a good time to do a quick timeout to understand some basic terminol
 
 //end timeout
 
-####Setting Up Intents and Entities
+#### Setting Up Intents and Entities
 For our WeatherBot, we are going to keep it simple. Because of that, we are going to be setting up a two or three intents and entities in LUIS. Let's get started.
 
 1. Let's add a new Entity. On the left hand side, hit the plus button next to "Pre-Built Entities", and in the dialog box click on "Geography" ![WeatherBot](./img/LUIS__Edit_Application_1.png) ![WeatherBot](./img/LUIS__Edit_Application_2.png)
@@ -230,7 +230,7 @@ For our WeatherBot, we are going to keep it simple. Because of that, we are goin
 10. It will open up in a new window with the query sent to the LUIS WeatherBot application and have a JSON representation of what it understood. If all went well, you should see the "FindWeather" Intent with a larger score, and our entity - builtin.geography.city. The score represents which intent LUIS matched with most. A score close to 1 means it matched it very well, closer to 0 means not so much. INSERT IMAGE
 11. For now, that is going to be the only intent we are going to set up for our bot. We can maybe try more later, but let's get back to the code. 
 
-###Integrating LUIS and the Code
+### Integrating LUIS and the Code
 Let's head back to our code editor, open up the folder, and get started with integration. Go ahead and open `index.js`
 
 2. To integrate LUIS, let's create a new function that handles all requests. We are going to call it `requestLUIS` and it is going to take our `bot` and the `message` as arguments
@@ -556,10 +556,10 @@ Let's head back to our code editor, open up the folder, and get started with int
 21. Congratulations! Hopefully you got back something like I did! Your first bot is a success :) Go ahead and try out some other cities, "weather in seattle" or "weather in New york". Every once in a while you may get one of our default responsese "Opps, didn't quite understand you." If your text was correct, maybe LUIS just doesn't understand it yet. All it takes is you going back to LUIS, typing in the utterance, and then training it. It should catch on pretty quickly.
 
 
-##Where to go from here
+## Where to go from here
 So what did we create? We created a simple chat bot interface that gives you the weather in a city. Exciting work but you can go so much further than this. 
 
-####Challenges to try
+#### Challenges to try
 
 -What if we don't know the location? Can the user send their location through Facebook's Messenger location feature? Absolutely they can, and there are ways to do that with Botkit. 
 
